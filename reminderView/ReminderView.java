@@ -97,7 +97,7 @@ public class ReminderView extends JFrame implements IReminderView
 		// Application Title 
 		calendarIcon = new ImageIcon(getClass().getResource("calendar.png"));
 		ApplicationHeaderLabel = new JLabel("Calendar reminder application", calendarIcon, SwingConstants.LEFT);
-		ApplicationHeaderLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
+		ApplicationHeaderLabel.setFont(new Font("πŸ≈¡", Font.BOLD, 22));
 		ApplicationHeaderLabel.setBackground(new Color (238,203,173));
 		ApplicationHeaderLabel.setOpaque(true);
 		northPanel.add(ApplicationHeaderLabel, BorderLayout.PAGE_START);
@@ -106,17 +106,17 @@ public class ReminderView extends JFrame implements IReminderView
 		yearLabel = new JLabel("Year");
 		yearLabel.setOpaque(true);
 		yearLabel.setBackground(new Color(205,175,149));
-		yearLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		yearLabel.setFont(new Font("πŸ≈¡", Font.BOLD, 16));
 		yearLabel.setToolTipText("Select year from the dropdown list");
 		monthLabel = new JLabel("Month");
 		monthLabel.setOpaque(true);
 		monthLabel.setBackground(new Color(222,184,135));
-		monthLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		monthLabel.setFont(new Font("πŸ≈¡", Font.BOLD, 16));
 		monthLabel.setToolTipText("Select month from the dropdown list");
 		dayLabel = new JLabel("Day");
 		dayLabel.setOpaque(true);
 		dayLabel.setBackground(new Color(245,222,179));
-		dayLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		dayLabel.setFont(new Font("πŸ≈¡", Font.BOLD, 16));
 		dayLabel.setToolTipText("Select day from the dropdown list");
 		
 		Integer[] yearArray = new Integer[IReminderModel.maxYears];
@@ -128,13 +128,13 @@ public class ReminderView extends JFrame implements IReminderView
 	
 		yearComboBox = new JComboBox<Integer>(yearArray);
 		yearComboBox.setBackground(new Color(205,175,149));
-		yearComboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		yearComboBox.setFont(new Font("πŸ≈¡", Font.PLAIN, 14));
 		monthComboBox = new JComboBox<String>(monthArray);
 		monthComboBox.setBackground(new Color(222,184,135));
-		monthComboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		monthComboBox.setFont(new Font("πŸ≈¡", Font.PLAIN, 14));
 		dayComboBox = new JComboBox<Integer>(dayArray);
 		dayComboBox.setBackground(new Color(245,222,179));
-		dayComboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		dayComboBox.setFont(new Font("πŸ≈¡", Font.PLAIN, 14));
 		
 		dateSelectorPanel = new JPanel(new GridLayout(0, 2, 2, 2));
 		dateSelectorPanel.setOpaque(true);
