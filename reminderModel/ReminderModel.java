@@ -31,7 +31,7 @@ public class ReminderModel extends Observable implements IReminderModel, Seriali
 	{
 		super();
 		calendar = new Hashtable<Date, String>();
-		fileName = "calendar.ser"; // default file name 
+		fileName = "캘린더.ser"; // default file name 
 	}
 
 	// Basic Getters: 
@@ -65,8 +65,8 @@ public class ReminderModel extends Observable implements IReminderModel, Seriali
 	// Get list of months: 
 	public ArrayList<String> getMonths() 
 	{
-		String[] monthsArray = {"January", "Febuary", "March", "April", "May", "June",
-						 "July", "August", "September", "October", "November", "Decmber"};
+		String[] monthsArray = {"1월", "2월", "3월", "4월", "5월", "6월",
+						 "7월", "8월", "9월", "10월", "11월", "12월"};
 		ArrayList <String>monthList = new ArrayList<String>(Arrays.asList(monthsArray));
 		return monthList;
 	}
@@ -116,7 +116,7 @@ public class ReminderModel extends Observable implements IReminderModel, Seriali
    	 			return true;
    	 		}
    	 		else 
-   	 			throw new ClassNotFoundException("Unable to interpret file");
+   	 			throw new ClassNotFoundException("파일을 해석할 수 없습니다.");
    		}
    	 	else return false;
 	}
