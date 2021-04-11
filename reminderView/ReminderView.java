@@ -150,17 +150,17 @@ public class ReminderView extends JFrame implements IReminderView
 		selectTextButton = new JButton("Search reminder text for selected date", selectIcon);
 		selectTextButton.setAlignmentY(LEFT_ALIGNMENT);
 		selectTextButton.setBackground(new Color(255,215,0));
-		selectTextButton.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		selectTextButton.setToolTipText("Get text saved for current selected date");
+		selectTextButton.setFont(new Font("바탕", Font.BOLD, 18));
+		selectTextButton.setToolTipText("현재 선택한 날짜에 저장된 텍스트를 불러옵니다.");
 		
 		northPanel.add(dateSelectorPanel, BorderLayout.CENTER);
 		northPanel.add(selectTextButton, BorderLayout.PAGE_END);
 		
 		// Text Area section
-		String defaultText = "Enter your reminder text here...";
+		String defaultText = "메모를 작성하세요...";
 		reminderText = new JTextArea(defaultText, 15, 20);
 		reminderText.setBackground(new Color(255,255,225));
-		reminderText.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		reminderText.setFont(new Font("바탕", Font.PLAIN, 20));
 		centerPanel.add(new JScrollPane(reminderText), BorderLayout.CENTER);
 		
 		// Filename section
