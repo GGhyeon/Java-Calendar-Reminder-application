@@ -71,11 +71,11 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 		    	 try
 		    	 {	 
 		    		 model.WriteCalendarToDatabase();
-		    		 view.setStatusBar(String.format("Reminder for date %s successfully saved in file \"%s\"", view.getInputDate(), model.getFileName()));
+		    		 view.setStatusBar(String.format("%s에 대한 일정이 성공적으로 파일 \"%s\"에 저장되었습니다.", view.getInputDate(), model.getFileName()));
 		    	 } 
 		    	 catch (IOException e) 
 		    	 {
-					view.displayErrorMessage("Application failed saving data to file!");
+					view.displayErrorMessage("데이터를 저장하는 데 실패했습니다!");
 		    	 }
 	    	 }
 	     }
@@ -91,7 +91,7 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 				if(model.readCalendarFromDatabase())
 				{
 					view.setReminderInputText(model.getReminder(view.getInputDate()));
-					view.setStatusBar(String.format("File %s imported successfully", model.getFileName()));
+					view.setStatusBar(String.format("%s 파일을 성공적으로 불러왔습니다.", model.getFileName()));
 				}
 			 }
 	    	 catch (ClassNotFoundException e)
@@ -115,7 +115,7 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 	     public void actionPerformed(ActionEvent event) 
 	     {
 	    	 view.setReminderInputText(model.getReminder(view.getInputDate()));
-	    	 view.setStatusBar(String.format("Text for date %s selected successfully", view.getInputDate()));
+	    	 view.setStatusBar(String.format("%s 일정이 선택되었습니다.", view.getInputDate()));
 	     }
 	}
 	
