@@ -49,7 +49,7 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 	public void initializeApplication() 
 	{
 		view.setDate(model.getCurrentDate());
-		view.setReminderInputText("Select dates,\nenter your reminders text here,\nand save to file.");
+		view.setReminderInputText("날짜를 선택하고,\n이곳에 일정을 작성한 후\n파일을 저장하세요.");
 		view.initGui();
 	}
 	
