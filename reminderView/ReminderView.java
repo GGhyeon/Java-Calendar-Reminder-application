@@ -75,7 +75,7 @@ public class ReminderView extends JFrame implements IReminderView
 	// Constructor - Initialize all GUI components:
 	public ReminderView (IReminderModel model)
 	{
-		super("Callendar Reminder Application");
+		super("캘린더 프로그램");
 		this.setSize(500, 500);
 		
 		// Create panels
@@ -96,28 +96,28 @@ public class ReminderView extends JFrame implements IReminderView
 		
 		// Application Title 
 		calendarIcon = new ImageIcon(getClass().getResource("calendar.png"));
-		ApplicationHeaderLabel = new JLabel("Calendar reminder application", calendarIcon, SwingConstants.LEFT);
+		ApplicationHeaderLabel = new JLabel("캘린더 프로그램", calendarIcon, SwingConstants.LEFT);
 		ApplicationHeaderLabel.setFont(new Font("바탕", Font.BOLD, 22));
 		ApplicationHeaderLabel.setBackground(new Color (238,203,173));
 		ApplicationHeaderLabel.setOpaque(true);
 		northPanel.add(ApplicationHeaderLabel, BorderLayout.PAGE_START);
 		
 		// Date selector section: combo boxes, labels, select button etc.
-		yearLabel = new JLabel("Year");
+		yearLabel = new JLabel("연도");
 		yearLabel.setOpaque(true);
 		yearLabel.setBackground(new Color(205,175,149));
 		yearLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		yearLabel.setToolTipText("Select year from the dropdown list");
-		monthLabel = new JLabel("Month");
+		yearLabel.setToolTipText("연도를 골라주세요.");
+		monthLabel = new JLabel("월");
 		monthLabel.setOpaque(true);
 		monthLabel.setBackground(new Color(222,184,135));
 		monthLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		monthLabel.setToolTipText("Select month from the dropdown list");
-		dayLabel = new JLabel("Day");
+		monthLabel.setToolTipText("몇 월인지 골라주세요.");
+		dayLabel = new JLabel("일");
 		dayLabel.setOpaque(true);
 		dayLabel.setBackground(new Color(245,222,179));
 		dayLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		dayLabel.setToolTipText("Select day from the dropdown list");
+		dayLabel.setToolTipText("며칠인지 골라주세요.");
 		
 		Integer[] yearArray = new Integer[IReminderModel.maxYears];
 		yearArray = model.getYears().toArray(yearArray);
@@ -147,7 +147,7 @@ public class ReminderView extends JFrame implements IReminderView
 		dateSelectorPanel.add(dayComboBox);
 		
 		selectIcon = new ImageIcon(getClass().getResource("search.png"));
-		selectTextButton = new JButton("Search reminder text for selected date", selectIcon);
+		selectTextButton = new JButton("선택한 날짜의 일정 확인", selectIcon);
 		selectTextButton.setAlignmentY(LEFT_ALIGNMENT);
 		selectTextButton.setBackground(new Color(255,215,0));
 		selectTextButton.setFont(new Font("바탕", Font.BOLD, 18));
@@ -164,29 +164,29 @@ public class ReminderView extends JFrame implements IReminderView
 		centerPanel.add(new JScrollPane(reminderText), BorderLayout.CENTER);
 		
 		// Filename section
-		fileName = new JTextField("Calendar.ser");
-		fileName.setFont(new Font("David", Font.PLAIN, 20));
-		fileNameLabel = new JLabel("File name:");
-		fileNameLabel.setFont(new Font("David", Font.BOLD, 20));
-		fileNameLabel.setToolTipText("Name of file to be saved on disk (you could use default");
+		fileName = new JTextField("캘린더.ser");
+		fileName.setFont(new Font("돋움", Font.PLAIN, 20));
+		fileNameLabel = new JLabel("파일 이름:");
+		fileNameLabel.setFont(new Font("돋움", Font.BOLD, 20));
+		fileNameLabel.setToolTipText("파일 이름을 작성하세요.");
 		fileNamePanel.add(fileNameLabel);
 		fileNamePanel.add(fileName);
 		centerPanel.add(fileNamePanel, BorderLayout.SOUTH);
 		
 		// Controls section - save, import, clear, etc. 
 		saveIcon = new ImageIcon(getClass().getResource("save.png"));
-		saveButton = new JButton("Save", saveIcon); 
-		saveButton.setToolTipText("Download calendar data to file in serialized format");
+		saveButton = new JButton("저장", saveIcon); 
+		saveButton.setToolTipText("캘린더를 저장합니다.");
 		controllsPanel.add(saveButton);
 		
 		importIcon = new ImageIcon(getClass().getResource("import.png"));
-		importButton = new JButton("Import", importIcon); 
-		importButton.setToolTipText("Import calendar data from serialzied file");
+		importButton = new JButton("불러오기", importIcon); 
+		importButton.setToolTipText("파일을 불러옵니다.");
 		controllsPanel.add(importButton);
 		
 		clearTextIcon = new ImageIcon(getClass().getResource("clearText.png"));
-		clearTextButton = new JButton("Clear text", clearTextIcon);
-		clearTextButton.setToolTipText("Clear text for current date");
+		clearTextButton = new JButton("일정 삭제", clearTextIcon);
+		clearTextButton.setToolTipText("선택된 날짜의 일정을 삭제합니다.");
 		controllsPanel.add(clearTextButton);
 		
 		eastPanel.add(controllsPanel);
@@ -271,12 +271,12 @@ public class ReminderView extends JFrame implements IReminderView
 	// update data according to observed model & changed object:
 	public void update(Observable model, Object changedObject) 
 	{
-		statusBar.setText(String.format("File %s has been imported successfully", changedObject));
+		statusBar.setText(String.format("%s 파일을 성공적으로 불러왔습니다.", changedObject));
 	}
 	
 	// Display Error Message:
 	public void displayErrorMessage(String message)
 	{
-		JOptionPane.showMessageDialog(this, message, "Reminder Application", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, message, "캘린더 프로그램", JOptionPane.ERROR_MESSAGE);
 	}
 }
