@@ -96,28 +96,28 @@ public class ReminderView extends JFrame implements IReminderView
 		
 		// Application Title 
 		calendarIcon = new ImageIcon(getClass().getResource("calendar.png"));
-		ApplicationHeaderLabel = new JLabel("캘린더 프로그램", calendarIcon, SwingConstants.LEFT);
-		ApplicationHeaderLabel.setFont(new Font("바탕", Font.BOLD, 22));
-		ApplicationHeaderLabel.setBackground(new Color (238,203,173));
+		ApplicationHeaderLabel = new JLabel("   캘린더 프로그램", calendarIcon, SwingConstants.LEFT);
+		ApplicationHeaderLabel.setFont(new Font("바탕", Font.BOLD, 17));
+		ApplicationHeaderLabel.setBackground(new Color (159,239,229));
 		ApplicationHeaderLabel.setOpaque(true);
 		northPanel.add(ApplicationHeaderLabel, BorderLayout.PAGE_START);
 		
 		// Date selector section: combo boxes, labels, select button etc.
 		yearLabel = new JLabel("연도");
 		yearLabel.setOpaque(true);
-		yearLabel.setBackground(new Color(205,175,149));
-		yearLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		yearLabel.setToolTipText("연도를 골라주세요.");
+		yearLabel.setBackground(new Color(100,216,202));
+		yearLabel.setFont(new Font("바탕", Font.BOLD, 13));
+		yearLabel.setToolTipText("연도 선택");
 		monthLabel = new JLabel("월");
 		monthLabel.setOpaque(true);
-		monthLabel.setBackground(new Color(222,184,135));
-		monthLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		monthLabel.setToolTipText("몇 월인지 골라주세요.");
+		monthLabel.setBackground(new Color(124,228,216));
+		monthLabel.setFont(new Font("바탕", Font.BOLD, 13));
+		monthLabel.setToolTipText("달 선택");
 		dayLabel = new JLabel("일");
 		dayLabel.setOpaque(true);
-		dayLabel.setBackground(new Color(245,222,179));
-		dayLabel.setFont(new Font("바탕", Font.BOLD, 16));
-		dayLabel.setToolTipText("며칠인지 골라주세요.");
+		dayLabel.setBackground(new Color(159,239,229));
+		dayLabel.setFont(new Font("바탕", Font.BOLD, 13));
+		dayLabel.setToolTipText("일 선택");
 		
 		Integer[] yearArray = new Integer[IReminderModel.maxYears];
 		yearArray = model.getYears().toArray(yearArray);
@@ -127,14 +127,14 @@ public class ReminderView extends JFrame implements IReminderView
 		dayArray = model.getValidDays(new Date(1,1,2018)).toArray(dayArray);
 	
 		yearComboBox = new JComboBox<Integer>(yearArray);
-		yearComboBox.setBackground(new Color(205,175,149));
-		yearComboBox.setFont(new Font("바탕", Font.PLAIN, 14));
+		yearComboBox.setBackground(new Color(255,153,190));
+		yearComboBox.setFont(new Font("바탕", Font.PLAIN, 13));
 		monthComboBox = new JComboBox<String>(monthArray);
-		monthComboBox.setBackground(new Color(222,184,135));
-		monthComboBox.setFont(new Font("바탕", Font.PLAIN, 14));
+		monthComboBox.setBackground(new Color(255,186,211));
+		monthComboBox.setFont(new Font("바탕", Font.PLAIN, 13));
 		dayComboBox = new JComboBox<Integer>(dayArray);
-		dayComboBox.setBackground(new Color(245,222,179));
-		dayComboBox.setFont(new Font("바탕", Font.PLAIN, 14));
+		dayComboBox.setBackground(new Color(255,218,231));
+		dayComboBox.setFont(new Font("바탕", Font.PLAIN, 13));
 		
 		dateSelectorPanel = new JPanel(new GridLayout(0, 2, 2, 2));
 		dateSelectorPanel.setOpaque(true);
@@ -149,8 +149,8 @@ public class ReminderView extends JFrame implements IReminderView
 		selectIcon = new ImageIcon(getClass().getResource("search.png"));
 		selectTextButton = new JButton("선택한 날짜의 일정 확인", selectIcon);
 		selectTextButton.setAlignmentY(LEFT_ALIGNMENT);
-		selectTextButton.setBackground(new Color(255,215,0));
-		selectTextButton.setFont(new Font("바탕", Font.BOLD, 18));
+		selectTextButton.setBackground(new Color(255,174,174));
+		selectTextButton.setFont(new Font("바탕", Font.BOLD, 14));
 		selectTextButton.setToolTipText("현재 선택한 날짜에 저장된 텍스트를 불러옵니다.");
 		
 		northPanel.add(dateSelectorPanel, BorderLayout.CENTER);
@@ -194,7 +194,7 @@ public class ReminderView extends JFrame implements IReminderView
 		
 		// Status bar section:
 		statusBar = new JLabel("@Chanan Welt: Maman14 - Question 2");
-		statusBar.setFont(new Font("David", Font.PLAIN, 16));
+		statusBar.setFont(new Font("David", Font.PLAIN, 14));
 		statusBar.setOpaque(true);
 		statusBar.setBackground(Color.LIGHT_GRAY);
 		southPanel.add(statusBar, BorderLayout.SOUTH);
@@ -211,7 +211,7 @@ public class ReminderView extends JFrame implements IReminderView
 	public void addSaveListener(ActionListener saveActionListener) 
 	{saveButton.addActionListener(saveActionListener);}
 
-	public void addYearListener(ItemListener handler)
+	public void addYearListener(ItemListener handler) //여기서부터 콤보박스핸들러
 	{yearComboBox.addItemListener(handler);}
 	
 	public void addMonthListener(ItemListener handler) 

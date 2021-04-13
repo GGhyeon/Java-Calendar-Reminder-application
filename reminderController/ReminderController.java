@@ -137,12 +137,12 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 	    	 if (newFileName != null && newFileName.length() != 0)
 	    	 {
 	    		model.setFileName(newFileName);
-	    		view.setStatusBar(String.format("File name Successfully changed to %s", newFileName));
+	    		view.setStatusBar(String.format("파일 이름이 %s로 변경되었습니다.", newFileName));
 	    	 }
 	    	 else 
 	    	 {
 	    		 view.setInputFileName(model.getFileName());
-	    		 view.displayErrorMessage("You cannot enter empty file name!\nFile name is restored to previous one");
+	    		 view.displayErrorMessage("파일 이름은 비워둘 수 없습니다.\n기존의 파일 이름으로 유지됩니다.");
 	    	 }
 	     }
 	}
