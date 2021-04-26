@@ -1,6 +1,7 @@
 
 import reminderController.ReminderController;
 import reminderModel.ReminderModel;
+import reminderMusic.PlayMusic;
 import reminderView.ReminderView;
 
 public class ReminderApplication
@@ -10,6 +11,12 @@ public class ReminderApplication
 		// Create model & view: 
 		ReminderModel model = new ReminderModel();
 		ReminderView view = new ReminderView(model);
+		
+		// Music
+		String filepath="playMusic.wav";
+		
+		PlayMusic musicObject=new PlayMusic();
+		musicObject.playMusic(filepath);
 		
 		// Create controller for model & view: 
 		ReminderController<ReminderModel, ReminderView> controller;
