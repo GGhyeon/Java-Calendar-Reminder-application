@@ -269,12 +269,13 @@ public class ReminderView extends JFrame implements IReminderView
 	public int getInputDay() {return (Integer)dayComboBox.getSelectedItem();}
 	public String getInputText() {return reminderText.getText();}
 	public String getInputFileName() {return fileName.getText();}
-	public Color getInputTextColor(Color color) {return reminderText.getForeground();}
-
 	
+
 	// Setters: 
 	public void setReminderInputText(String newText) {reminderText.setText(newText);}
 	public void setInputFileName(String newFileName) {fileName.setText(newFileName);}
+	public void setInputTextColor(Color color) {reminderText.setForeground(color);}
+	
 
 
 	

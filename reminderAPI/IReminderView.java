@@ -17,7 +17,7 @@ public interface IReminderView extends Observer
 	public Date getInputDate();
 	public String getInputText();
 	public String getInputFileName();
-	public Color getInputTextColor(Color color);
+	
 	
 	// Setters: 
 	public void setDate(Date date);
@@ -25,6 +25,7 @@ public interface IReminderView extends Observer
 	public void setInputFileName(String newFileName);
 	public void setDayList(ArrayList<Integer> days);
 	public void setReminderInputText(String newText);
+	public void setInputTextColor(Color color);
 
 	
 	// GUI general operations:
