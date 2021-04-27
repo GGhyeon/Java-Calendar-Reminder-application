@@ -14,7 +14,7 @@ public class ReminderApplication
 		
 		
 		// Music
-		String filepath="playMusic.wav";
+		String filepath="Sand Castle - Quincas Moreira.wav";
 		PlayMusic.playMusic(filepath);
 		
 		// Create controller for model & view: 
