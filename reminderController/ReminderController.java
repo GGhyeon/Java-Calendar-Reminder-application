@@ -179,8 +179,8 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
         @Override
         public void actionPerformed(ActionEvent ae) {
             String cmd=ae.getActionCommand();
-            if(cmd.equals("Color")){
-                Color color=view.getInputTextColor(JColorChooser.showDialog(null,"Color",Color.YELLOW)); 
+            if(cmd.equals("글자 색깔 지정")){
+				Color color=view.getInputTextColor(colorChooser.showDialog(null,"Color",Color.YELLOW)); 
                 if(color!=null)
                 	view.getInputTextColor(color);
             }

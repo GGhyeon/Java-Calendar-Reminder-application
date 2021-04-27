@@ -181,7 +181,7 @@ public class ReminderView extends JFrame implements IReminderView
 		
 		
 		//색깔 고르기
-		ColorChooseButton= new JButton("글짜 색깔 지정");
+		ColorChooseButton= new JButton("글자 색깔 지정");
 		centerPanel.add(ColorChooseButton, BorderLayout.NORTH);
 
 		
