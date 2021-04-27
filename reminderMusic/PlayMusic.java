@@ -6,12 +6,10 @@ import java.io.InputStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.JOptionPane;
 
 public class PlayMusic {
 
 	
-	//¿À·ù
 	public static void playMusic(String musicLocation) {
 		InputStream music;
 		try{
