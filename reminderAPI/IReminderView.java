@@ -1,5 +1,6 @@
 package reminderAPI;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public interface IReminderView extends Observer
 	public Date getInputDate();
 	public String getInputText();
 	public String getInputFileName();
+	public Color getInputTextColor(Color color);
 	
 	// Setters: 
 	public void setDate(Date date);
@@ -23,6 +25,7 @@ public interface IReminderView extends Observer
 	public void setInputFileName(String newFileName);
 	public void setDayList(ArrayList<Integer> days);
 	public void setReminderInputText(String newText);
+
 	
 	// GUI general operations:
 	public void displayErrorMessage(String message);
@@ -37,4 +40,5 @@ public interface IReminderView extends Observer
 	public void addSelectTextListener(ActionListener SelectTextHandler);
 	public void addClearListener(ActionListener clearActionListener);
 	public void addFileNameListener(ActionListener fileNameHandler);
+	public void addColorChooseListener(ActionListener MenuActionListener);
 }

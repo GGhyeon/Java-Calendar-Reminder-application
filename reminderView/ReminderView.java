@@ -1,9 +1,11 @@
 package reminderView;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.security.SecureRandom;
@@ -13,9 +15,13 @@ import java.util.Observable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -26,6 +32,9 @@ import javax.swing.SwingConstants;
 import date.Date;
 import reminderAPI.IReminderModel;
 import reminderAPI.IReminderView;
+
+
+
 
 public class ReminderView extends JFrame implements IReminderView
 {
@@ -43,7 +52,7 @@ public class ReminderView extends JFrame implements IReminderView
 	private final JPanel controllsPanel;
 	private final JPanel dateSelectorPanel;
 	private final JPanel fileNamePanel;
-	
+
 	// ComboBoxes for selecting a date 
 	private final JComboBox<Integer> dayComboBox;
 	private final JComboBox<String> monthComboBox;
@@ -54,6 +63,7 @@ public class ReminderView extends JFrame implements IReminderView
 	private JButton saveButton;
 	private JButton importButton;
 	private JButton clearTextButton;
+	private JButton ColorChooseButton;
 	private final JTextArea reminderText;
 	private final JTextField fileName;
 	
@@ -71,12 +81,14 @@ public class ReminderView extends JFrame implements IReminderView
 	private final Icon saveIcon;
 	private final Icon importIcon;
 	private final Icon clearTextIcon;
+
+	
 	
 	// Constructor - Initialize all GUI components:
 	public ReminderView (IReminderModel model)
 	{
 		super("캘린더 프로그램");
-		this.setSize(500, 500);
+		this.setSize(600, 500);
 		
 		// Create panels
 		northPanel = new JPanel(new BorderLayout());
@@ -96,7 +108,7 @@ public class ReminderView extends JFrame implements IReminderView
 		
 		// Application Title 
 		calendarIcon = new ImageIcon(getClass().getResource("calendar.png"));
-		ApplicationHeaderLabel = new JLabel("   캘린더 프로그램", calendarIcon, SwingConstants.LEFT);
+		ApplicationHeaderLabel = new JLabel(" 캘린더 프로그램", calendarIcon, SwingConstants.LEFT);
 		ApplicationHeaderLabel.setFont(new Font("바탕", Font.BOLD, 17));
 		ApplicationHeaderLabel.setBackground(new Color (159,239,229));
 		ApplicationHeaderLabel.setOpaque(true);
@@ -119,6 +131,10 @@ public class ReminderView extends JFrame implements IReminderView
 		dayLabel.setFont(new Font("바탕", Font.BOLD, 13));
 		dayLabel.setToolTipText("일 선택");
 		
+		//model.getYear() + "-" + (model.getMonth() + 1) + "-" + model.getDay();
+
+
+	
 		Integer[] yearArray = new Integer[IReminderModel.maxYears];
 		yearArray = model.getYears().toArray(yearArray);
 		String[] monthArray = new String[IReminderModel.maxMonths];
@@ -163,11 +179,19 @@ public class ReminderView extends JFrame implements IReminderView
 		reminderText.setFont(new Font("바탕", Font.PLAIN, 20));
 		centerPanel.add(new JScrollPane(reminderText), BorderLayout.CENTER);
 		
+		
+		//색깔 고르기
+		ColorChooseButton= new JButton("글짜 색깔 지정");
+		centerPanel.add(ColorChooseButton, BorderLayout.NORTH);
+
+		
+		
+		
 		// Filename section
 		fileName = new JTextField("캘린더.ser");
-		fileName.setFont(new Font("돋움", Font.PLAIN, 20));
+		fileName.setFont(new Font("돋움", Font.PLAIN, 14));
 		fileNameLabel = new JLabel("파일 이름:");
-		fileNameLabel.setFont(new Font("돋움", Font.BOLD, 20));
+		fileNameLabel.setFont(new Font("돋움", Font.BOLD, 16));
 		fileNameLabel.setToolTipText("파일 이름을 작성하세요.");
 		fileNamePanel.add(fileNameLabel);
 		fileNamePanel.add(fileName);
@@ -200,6 +224,9 @@ public class ReminderView extends JFrame implements IReminderView
 		southPanel.add(statusBar, BorderLayout.SOUTH);
 	}
 	
+
+
+
 	// Utility initialization for setting GUI first time:
 	public void initGui() 
 	{
@@ -232,6 +259,9 @@ public class ReminderView extends JFrame implements IReminderView
 	public void addFileNameListener(ActionListener fileNameHandler)
 	{fileName.addActionListener(fileNameHandler);}
 	
+	public void addColorChooseListener(ActionListener MenuActionListener)
+	{ColorChooseButton.addActionListener(MenuActionListener);}
+	
 	// Getters: 
 	public Date getInputDate() {return new Date(getInputDay(), getInputMonth(), getInputYear());}
 	public int getInputYear(){return (Integer)yearComboBox.getSelectedItem();}
@@ -239,10 +269,14 @@ public class ReminderView extends JFrame implements IReminderView
 	public int getInputDay() {return (Integer)dayComboBox.getSelectedItem();}
 	public String getInputText() {return reminderText.getText();}
 	public String getInputFileName() {return fileName.getText();}
+	public Color getInputTextColor(Color color) {return reminderText.getForeground();}
+
 	
 	// Setters: 
 	public void setReminderInputText(String newText) {reminderText.setText(newText);}
 	public void setInputFileName(String newFileName) {fileName.setText(newFileName);}
+
+
 	
 	public void setDayList(ArrayList<Integer> days)
 	{
@@ -265,7 +299,7 @@ public class ReminderView extends JFrame implements IReminderView
 		int randomBlueColor = randomNumbers.nextInt(256);
 		statusBar.setOpaque(true);
 		statusBar.setText(message);
-		statusBar.setBackground(new Color(randomRedColor, 255, randomBlueColor));
+		statusBar.setBackground(new Color(255, 170, 182));
 	}
 	
 	// update data according to observed model & changed object:
@@ -279,4 +313,8 @@ public class ReminderView extends JFrame implements IReminderView
 	{
 		JOptionPane.showMessageDialog(this, message, "캘린더 프로그램", JOptionPane.ERROR_MESSAGE);
 	}
+
+
+	
+	
 }

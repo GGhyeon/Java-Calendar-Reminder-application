@@ -12,11 +12,10 @@ public class ReminderApplication
 		ReminderModel model = new ReminderModel();
 		ReminderView view = new ReminderView(model);
 		
+		
 		// Music
 		String filepath="playMusic.wav";
-		
-		PlayMusic musicObject=new PlayMusic();
-		musicObject.playMusic(filepath);
+		PlayMusic.playMusic(filepath);
 		
 		// Create controller for model & view: 
 		ReminderController<ReminderModel, ReminderView> controller;

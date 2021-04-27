@@ -1,5 +1,6 @@
 package reminderController;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -9,6 +10,8 @@ import java.io.IOException;
 
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JColorChooser;
 
 import reminderAPI.IReminderController;
 import reminderAPI.IReminderModel;
@@ -42,6 +45,7 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 		view.addImportListener(new ImportHandler());
 		view.addClearListener(new ClearTextHandler());
 		view.addFileNameListener(new fileNameHandler());
+		view.addColorChooseListener(new MenuActionListener());
 	}
 	
 	// Set default data and initialize GUI
@@ -168,4 +172,20 @@ public class ReminderController <M extends Observable & IReminderModel, V extend
 			}			
 		}
 	}
+	
+	private class MenuActionListener implements ActionListener{
+        JColorChooser colorChooser=new JColorChooser();
+        
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            String cmd=ae.getActionCommand();
+            if(cmd.equals("Color")){
+                Color color=view.getInputTextColor(JColorChooser.showDialog(null,"Color",Color.YELLOW)); 
+                if(color!=null)
+                	view.getInputTextColor(color);
+            }
+        }
+        
+    }
+	
 }

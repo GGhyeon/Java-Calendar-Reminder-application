@@ -1,5 +1,6 @@
 package reminderModel;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -40,6 +41,7 @@ public class ReminderModel extends Observable implements IReminderModel, Seriali
 	public Hashtable<Date, String> getCalendar(){return calendar;}
 	public String getFileName() {return fileName;}
 	public Date getCurrentDate() {return new Date();}
+
 	
 	// Basic Setters: 
 	public void setCalendar(Hashtable<Date, String> databaseCalendar) {this.calendar = databaseCalendar;}
@@ -120,4 +122,6 @@ public class ReminderModel extends Observable implements IReminderModel, Seriali
    		}
    	 	else return false;
 	}
+
+
 }

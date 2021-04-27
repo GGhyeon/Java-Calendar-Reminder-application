@@ -1,5 +1,6 @@
 package reminderAPI;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -21,6 +22,7 @@ public interface IReminderModel
 	public ArrayList<Integer> getYears();
 	public ArrayList<String> getMonths();
 	public ArrayList<Integer> getValidDays(Date date);
+	
 	
 	// Setters: 
 	public void setCalendar(Hashtable<Date, String> databaseCalendar);
